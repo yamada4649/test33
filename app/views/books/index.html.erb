@@ -3,7 +3,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>      </th>
+			<th></th>
 			<th>Title</th>
 			<th>Opinion</th>
 
@@ -11,16 +11,18 @@
 	</thead>
 	<tbody>
 		<tr>
-			<%= @books.each do |book| %>
-			<td>NoImage File</td>
-			<td><%= book.title %></td>
-			<td><%= book.body %></td>
-			<% end %>
-
+			<% @books.each do |book| %>
+				<td>NoImage File</td>
+				<td><%= book.title %></td>
+				<td><%= book.body %></td>
 		</tr>
+			<% end %>
 	</tbody>
 </table>
 
 <footer>
 	CopyRight Infratop.inc
 </footer>
+
+
+<%= render 'books/list', books: @books, book: @book %>

@@ -1,0 +1,22 @@
+<div class="col-xs-3">
+<%= render 'books/list', book:@book %>
+</div>
+
+<div class="col-xs-9">
+<h8>Users</h8>
+<table>
+	<tbody>
+		<tr>
+			<td>image</td>
+			<td>name</td>
+		</tr>
+		<tr>
+			<% @users.each do |user| %>
+			<td>user image</td>
+			<td><%= @user.name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+	
+</div>
