@@ -1,24 +1,25 @@
 <h7>User info</h7><br>
-<h7>No image</h7>
 
+<% if user_signed_in? %>
+<%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 <table>
 	<thead>
 		<tr>
 			<th>name</th>
-			<th>user.id</th>
+			<th><%= user.name %></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>introduction</td>
-			<td>aaaaaa</td>
+			<td><%= user.introduction %></td>
 		</tr>
 	</tbody>
 </table>
 
-<h8>設定</h8>
-
-
+<% if user.id == current_user.id %>
+	<p><%= link_to "設定", edit_user_path(user.id) %></p>
+<% end %>
 
 <h3>New Book</h3>
 	<div class="sidebar">
@@ -43,3 +44,4 @@
 			<% end %>
 
 	</div>
+<% end %>

@@ -1,28 +1,10 @@
+<p>welcome to Bookers !!</p><br>
+<p>In Bookers,</p><br>
 
-<h1>Books</h1>
-<table>
-	<thead>
-		<tr>
-			<th></th>
-			<th>Title</th>
-			<th>Opinion</th>
+<p>you can share and exchange your opinions , inpressions , and emotions</p><br>
 
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<% @books.each do |book| %>
-				<td>NoImage File</td>
-				<td><%= book.title %></td>
-				<td><%= book.body %></td>
-		</tr>
-			<% end %>
-	</tbody>
-</table>
-
-<footer>
-	CopyRight Infratop.inc
-</footer>
+<p>about various books!</p><br>
 
 
-<%= render 'books/list', books: @books, book: @book %>
+<%= link_to "Log in", new_user_session_path %>
+<%= link_to "Sign Up", new_user_registration_path %>

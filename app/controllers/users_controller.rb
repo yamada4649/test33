@@ -13,13 +13,24 @@ class UsersController < ApplicationController
 
 	def edit
 		@book = Book.find(params[:id])
-		
+		@user = User.find(params[:id])
 	end
 
 	def update
-	book = book.find(params[:id])
-	book.update(book_params)
-	redirect_to book_path
-	
+		book = book.find(params[:id])
+		book.update(book_params)
+		redirect_to book_path
+		@user = User.find(params[:id])
+		@user.update(user_params)
+		redirect_to user_path(@user.id)
 	end
+
+	
+
+
+	private
+	def book_params
+		params.require(:book).permit(:title, :body)
+	end
+	
 end

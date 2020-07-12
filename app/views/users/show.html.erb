@@ -1,22 +1,32 @@
 <div class="col-xs-3">
-<%= render 'books/list', book:@book %>
+<%= render 'books/list', book:@book, user:@user %>
 </div>
 
+<h8>Books</h8>
+
+
 <div class="col-xs-9">
-<h8>Book detail　『自分』</h8>
 <table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Title</th>
+			<th>Opinion</th>
+
+		</tr>
+	</thead>
 	<tbody>
 		<tr>
-			<td>title text</td>
-			<td>opinion text</td>
-		<% @books.each do |book| %>
-			<td><%= @book.title %></td>
-			<td><%= @book.body %></td>
-			<td><%= link_to "Edit", edit_book_path(book.id) %></td>
-			<td><%= link_to "Destroy", book_path(book.id), method: :delete %></td>
+			<% @books.each do |book| %>
+				<td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></td>
+				<td><%= book.title %></td>
+				<td><%= book.body %></td>
 		</tr>
-		<% end %>
+			<% end %>
 	</tbody>
 </table>
-	
+
+<footer>
+	CopyRight Infratop.inc
+</footer>
 </div>

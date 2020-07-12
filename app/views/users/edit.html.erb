@@ -1,0 +1,9 @@
+<p>User info</p>
+<%= form_for(@user) do |f| %>
+<p>Name</p>
+<%= f.text_field :name %>
+<p>Image</p>
+<%= f.attachment_field :profile_image, placeholder: "ファイルを選択" %>
+<p>選択されていません</p>
+<p>Introduction</p>
+<%= f.text_area :introduction %>
