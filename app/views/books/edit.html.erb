@@ -1,4 +1,16 @@
-<h9>Editting Book</h9>
+<h9>Editing Book</h9>
+
+	<% if @book.errors.any? %>
+		<div id="error_explanation" class="alert alert-danger">
+			<ul>
+				<% @book.errors.full_messages.each do |message| %>
+				<li><%= message+"error" %></li>
+				<% end %>
+			</ul>
+			
+		</div>
+	<% end %>
+
 
 <%= form_for(@book) do |f| %>
 

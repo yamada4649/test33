@@ -10,12 +10,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="notice"><%= alert %></p>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <div id="slidemenu">
   <ul>
     <% if user_signed_in? %>
+    <div class ="title Bookers">
+      <p>Bookers</p>
+    </div>
       <li>
-        <%= link_to "Home", user_path(@user.id) %>
+        <%= link_to "Home", user_path(current_user) %>
       </li>
 
       <li>
@@ -31,11 +41,11 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "Home", books_path %>
+        <%= link_to "Home", root_path %>
       </li>
 
       <li>
-        <%= link_to "About", about_path %>
+        <%= link_to "About", home_about_path %>
       </li>
 
       <li>

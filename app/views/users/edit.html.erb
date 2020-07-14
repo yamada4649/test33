@@ -1,4 +1,17 @@
 <p>User info</p>
+
+	<% if @user.errors.any? %>
+		<div id="error_explanation" class="alert alert-danger">
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+				<li><%= message+"error" %></li>
+				<% end %>
+			</ul>
+			
+		</div>
+	<% end %>
+
+
 <%= form_for(@user) do |f| %>
 <p>Name</p>
 <%= f.text_field :name %>
@@ -7,3 +20,5 @@
 <p>選択されていません</p>
 <p>Introduction</p>
 <%= f.text_area :introduction %>
+<%= f.submit "Update User" %>
+<% end %>
